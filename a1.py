@@ -1,15 +1,5 @@
-number = int(input("input your number:"))
-
-digits = len(str(number))
-
-resultNumber = 0
-
-temp = number
-while temp>0:
-    digit = temp % 10
-    resultNumber+= digit ** digit
-    temp//=10
-    if number == resultNumber:
-        print(number,"is an armstrong number")
-else:
-        print(number,"is not an armstrong number")
+Enter your Binary: 010
+Decimal :  2
+ 
+Enter your Binary: 1101
+Decimal :  13
