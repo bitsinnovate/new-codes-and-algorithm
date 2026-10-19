@@ -1,5 +1,15 @@
-Enter your Binary: 010
-Decimal :  2
- 
-Enter your Binary: 1101
-Decimal :  13
+number = int(input("enter your number"))
+
+original_number = number
+reversed_number = 0
+
+while number > 0:
+    digit = number%10
+    reversed_number = reversed_number * 10 + digit
+    number //=10
+if original_number == reversed_number:
+
+ print("palindromic number")
+
+else:
+ print("not palindromic number")
