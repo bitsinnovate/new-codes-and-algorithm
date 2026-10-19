@@ -1,15 +1,9 @@
-number = int(input("enter your number"))
+a = int(input("enter number1:"))
+b = int(input("enter number2:"))
 
-original_number = number
-reversed_number = 0
-
-while number > 0:
-    digit = number%10
-    reversed_number = reversed_number * 10 + digit
-    number //=10
-if original_number == reversed_number:
-
- print("palindromic number")
-
-else:
- print("not palindromic number")
+greater = max(a,b)
+smallest = min(a,b)
+for i in range(greater,a*b+1,greater):
+    if i % smallest == 0:
+        break
+print(i)
