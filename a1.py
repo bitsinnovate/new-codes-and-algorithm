@@ -1,9 +1,12 @@
-a = int(input("enter number1:"))
-b = int(input("enter number2:"))
+from math import sqrt
+n = int(input("enter the number:"))
+if (n>1):
+    for i in range(2,int(sqrt(n)+1)):
+        if n%i == 0:
+            print(n, "is not prime number")
+            break
+    else:
+        print(n, "is prime")
 
-greater = max(a,b)
-smallest = min(a,b)
-for i in range(greater,a*b+1,greater):
-    if i % smallest == 0:
-        break
-print(i)
+else:
+    print(n, "is not prime")
