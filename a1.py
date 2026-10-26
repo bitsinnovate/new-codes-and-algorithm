@@ -1,14 +1,11 @@
-from math import sqrt
-n = int(input("Enter a 2-digit number: "))
-if not (10 <= n <= 99):
-    print("Error: The number must be a 2-digit number (10 to 99).")
-if (n>1):
-    for i in range(2,int(sqrt(n)+1)):
-        if n%i == 0:
-            print(n, "is not prime number")
-            break
-    else:
-        print(n, "is prime")
+n=int(input("enter a number (try 5 or 12 ):"))
+print("binary number")
+print("decimal",n,"-> binary",bin(n)[2:])
+print("AND-both bits must be 1")
 
-else:
-    print(n, "is not prime")
+print("   12=",bin(12)[2:])
+print("   10=",bin(10)[2:])
+print("   12&10=",12&10)
+
+print("OR-atleast one bit must be 1")
+print("  12|10=", 12|10)
