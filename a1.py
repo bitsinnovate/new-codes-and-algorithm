@@ -1,12 +1,9 @@
-print("XOR with 0 keeps the number")
-print("  5^0=", 5^0)
-print("  9^0=", 9^0)
-
-print("XOR with itself givess 0")
-print("  5^5=", 5^5)
-print("  9^9=", 9^9)
-
-n=int(input("enter a number(try 6 or 11):"))
-guess = input(" what is 3^"+ str(n)+" ^3?")
-print("XOR cances - 3 appears twice so it dissapears")
-print(" 3^",n,"^3=",3^n^3,"  your guess:",guess)
+print("n & ( n - 1) clears the rrightmost set bit")
+print(" 12&11=",12&11, " binary:",bin(12&11)[2:])
+print(" 8&7=",8&7)
+n=int(input("enter a number(try 4 or 6):"))
+print(" power of 2 :n&(n-1)==0 means only one bit is one")
+if n>0 and(n&(n-1))==0:
+    print(" ",n," binary:",bin(n)[2:])
+else:
+    print(" ",n," binary:",bin(n)[2:])
