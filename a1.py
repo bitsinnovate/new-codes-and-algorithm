@@ -1,129 +1,119 @@
 # ================================
-# POWER OF TWO SCANNER
+# BINARY CLUE INVESTIGATOR
 # ================================
 # Topics:
-# n & (n-1) Trick | Power of 2 Check | Power of 4 Check
-# Power of 8 Check | Binary Exponentiation
-
+# XOR Identity and Equality | XOR Cancellation
+# One Odd-Occurring Number | XOR of Two Odd-Occurring Numbers
+# Splitting by the Rightmost Set Bit
+ 
 print("================================")
-print("POWER OF TWO SCANNER")
+print("BINARY CLUE INVESTIGATOR")
 print("================================")
-
-
+ 
+ 
 # ------------------------------------------------
-# PART 1 — THE n & (n-1) TRICK
+# PART 1 — XOR IDENTITY AND EQUALITY
 # ------------------------------------------------
-
-n = 16
-
+ 
+a = 7
+b = 7
+ 
 print("
-PART 1: The n & (n-1) Trick")
-print("n       =", n, "->", bin(n))
-print("n - 1   =", n - 1, "->", bin(n - 1))
-print("n&(n-1) =", n & (n - 1), "->", bin(n & (n - 1)))
-
+PART 1: XOR Identity and Equality")
+print("a =", a)
+print("b =", b)
+print("a ^ a =", a ^ a)
+print("a ^ 0 =", a ^ 0)
+ 
+if (a ^ b) == 0:
+    print("Both numbers are equal")
+else:
+    print("Both numbers are different")
+ 
+ 
+# ------------------------------------------------
+# PART 2 — XOR CANCELLATION
+# ------------------------------------------------
+ 
+clues = [3, 5, 3, 5, 9]
+ 
+xor_result = 0
+ 
+for clue in clues:
+    xor_result = xor_result ^ clue
+ 
 print("
-This trick removes the rightmost set bit.")
-
-
+PART 2: XOR Cancellation")
+print("Clues:", clues)
+print("Final XOR Result:", xor_result)
+print("Repeated clues cancel out, so the remaining clue is:", xor_result)
+ 
+ 
 # ------------------------------------------------
-# PART 2 — POWER OF 2 CHECK
+# PART 3 — ONE ODD-OCCURRING NUMBER
 # ------------------------------------------------
-
-def is_power_of_2(num):
-    return num > 0 and (num & (num - 1)) == 0
-
-
+ 
+numbers = [4, 7, 4, 2, 7, 2, 9]
+ 
+odd_number = 0
+ 
+for number in numbers:
+    odd_number = odd_number ^ number
+ 
 print("
-PART 2: Power of 2 Check")
-
-numbers = [1, 2, 4, 6, 8, 12, 16, 18, 32]
-
-for num in numbers:
-    print(num, "->", bin(num), "->", is_power_of_2(num))
-
-
+PART 3: One Odd-Occurring Number")
+print("Numbers:", numbers)
+print("Odd-occurring number:", odd_number)
+ 
+ 
 # ------------------------------------------------
-# PART 3 — POWER OF 4 CHECK
+# PART 4 — XOR OF TWO ODD-OCCURRING NUMBERS
 # ------------------------------------------------
-
-def is_power_of_4(num):
-    if not is_power_of_2(num):
-        return False
-
-    position = 0
-
-    while num > 1:
-        num = num >> 1
-        position = position + 1
-
-    return position % 2 == 0
-
-
+ 
+pair_numbers = [3, 9, 3, 5, 5, 7]
+ 
+xor_of_two = 0
+ 
+for number in pair_numbers:
+    xor_of_two = xor_of_two ^ number
+ 
 print("
-PART 3: Power of 4 Check")
-
-for num in numbers:
-    print(num, "->", is_power_of_4(num))
-
-
+PART 4: XOR of Two Odd-Occurring Numbers")
+print("Numbers:", pair_numbers)
+print("XOR of two odd-occurring numbers:", xor_of_two)
+ 
+ 
 # ------------------------------------------------
-# PART 4 — POWER OF 8 CHECK
+# PART 5 — SPLITTING BY THE RIGHTMOST SET BIT
 # ------------------------------------------------
-
-def is_power_of_8(num):
-    if not is_power_of_2(num):
-        return False
-
-    position = 0
-
-    while num > 1:
-        num = num >> 1
-        position = position + 1
-
-    return position % 3 == 0
-
-
+ 
+rightmost_set_bit = xor_of_two & -xor_of_two
+ 
+first_odd = 0
+second_odd = 0
+ 
+for number in pair_numbers:
+    if number & rightmost_set_bit:
+        first_odd = first_odd ^ number
+    else:
+        second_odd = second_odd ^ number
+ 
 print("
-PART 4: Power of 8 Check")
-
-for num in numbers:
-    print(num, "->", is_power_of_8(num))
-
-
-# ------------------------------------------------
-# PART 5 — BINARY EXPONENTIATION
-# ------------------------------------------------
-
-def binary_power(base, exponent):
-    answer = 1
-
-    while exponent > 0:
-        if exponent & 1:
-            answer = answer * base
-
-        base = base * base
-        exponent = exponent >> 1
-
-    return answer
-
-
-print("
-PART 5: Binary Exponentiation")
-print("2^5 =", binary_power(2, 5))
-print("3^4 =", binary_power(3, 4))
-print("5^3 =", binary_power(5, 3))
-
-
+PART 5: Splitting by the Rightmost Set Bit")
+print("Rightmost set bit:", rightmost_set_bit)
+print("First odd-occurring number:", first_odd)
+print("Second odd-occurring number:", second_odd)
+ 
+ 
 # FINAL SUMMARY
-
+ 
 print("
 ================================")
-print("POWER SCANNER SUMMARY")
+print("BINARY CLUE INVESTIGATION SUMMARY")
 print("================================")
-print("Power of 2: only one bit is set.")
-print("Power of 4: set-bit position is even.")
-print("Power of 8: set-bit position is divisible by 3.")
-print("Binary exponentiation calculates powers quickly.")
+print("XOR Identity: a ^ a = 0")
+print("XOR with zero: a ^ 0 = a")
+print("XOR Cancellation removes repeated pairs")
+print("One odd-occurring number found:", odd_number)
+print("Two odd-occurring numbers found:", first_odd, "and", second_odd)
 print("================================")
-
